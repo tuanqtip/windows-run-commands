@@ -45,3 +45,6 @@ This document lists a variety of useful Run commands in Windows for quickly acce
 | `msconfig`          | Opens System Configuration                        |
 
 These commands can be entered into the Run dialog (Win + R) for quick access to the listed utilities.
+
+## Remove activate windows watermash
+Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\svsvc -> Start (4) -> Reset
