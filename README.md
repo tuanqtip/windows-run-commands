@@ -48,3 +48,17 @@ These commands can be entered into the Run dialog (Win + R) for quick access to 
 
 ## Remove activate windows watermash
 Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\svsvc -> Start (4) -> Reset
+
+## kiem tra may tinh:
+Disk: Get-PhysicalDisk | Format-List * > C:\temp\PhysicalDiskInfo.txt
+RAM: Get-CimInstance -ClassName Win32_PhysicalMemory | Format-List *
+CPU: Get-CimInstance -ClassName Win32_Processor | Format-List *
+Motherboard: Get-CimInstance -ClassName Win32_BaseBoard | Format-List *
+GPU: Get-CimInstance -ClassName Win32_VideoController | Format-List *
+Network Adapter: Get-CimInstance -ClassName Win32_NetworkAdapter | Where-Object { $_.PhysicalAdapter -eq $true } | Format-List *
+Pin: Get-CimInstance -ClassName Win32_Battery | Format-List *
+Storage Controller (Bộ điều khiển lưu trữ): Get-CimInstance -ClassName Win32_SCSIController | Format-List *
+BIOS: Get-CimInstance -ClassName Win32_BIOS | Format-List *
+
+
+
