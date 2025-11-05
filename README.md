@@ -49,7 +49,7 @@ These commands can be entered into the Run dialog (Win + R) for quick access to 
 ## Remove activate windows watermash
 Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\svsvc -> Start (4) -> Reset
 
-## kiem tra may tinh:
+## Xem các thông số của máy tính:
 ```powershell
 Disk: Get-PhysicalDisk | Format-List * > C:\temp\PhysicalDiskInfo.txt
 RAM: Get-CimInstance -ClassName Win32_PhysicalMemory | Format-List *
@@ -61,5 +61,18 @@ Pin: Get-CimInstance -ClassName Win32_Battery | Format-List *
 Storage Controller (Bộ điều khiển lưu trữ): Get-CimInstance -ClassName Win32_SCSIController | Format-List *
 BIOS: Get-CimInstance -ClassName Win32_BIOS | Format-List *
 ```
+## Kiểm tra sức khỏe của máy tính:
+### 1. Kiểm tra tổng quan:
+  Windows Security -> Device performance & health
+<img width="759" height="816" alt="image" src="https://github.com/user-attachments/assets/7849bde1-51a3-46c6-8aa5-0727dbc3606c" />
 
+### 2. Kiểm tra pin bằng lệnh powershell:
+```powershell
+powercfg /batteryreport
+```
+<img width="648" height="545" alt="image" src="https://github.com/user-attachments/assets/91ce4c2c-5e5b-49d4-b5f7-8763e550d58a" />
 
+### 3. Kiểm tra disk bằng lệnh powershell:
+```powershell
+Get-PhysicalDisk | Select-Object FriendlyName, MediaType, HealthStatus, OperationalStatus
+```
